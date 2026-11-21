@@ -18,9 +18,11 @@ vim.g.vimtex_view_general_options = "-reuse-instance -forward-search @tex @line 
 -- Install/Load Plugins !!!
 vim.pack.add({
   "https://github.com/neovim/nvim-lspconfig",
-  "https://github.com/nvim-treesitter/nvim-treesitter",
-  "https://github.com/lervag/vimtex",
-  "https://github.com/stevearc/oil.nvim",
+  "https://github.com/nvim-treesitter/nvim-treesitter",   -- Treesitter
+  "https://github.com/lervag/vimtex",                     -- VimTeX
+  "https://github.com/stevearc/oil.nvim",                 -- Oil.nvim file explorer
+
+  "https://github.com/ellisonleao/gruvbox.nvim",          -- Gruvbox theme
 })
 
 require("oil").setup({ view_options = { show_hidden = true } })
@@ -120,8 +122,8 @@ vim.api.nvim_create_autocmd("User", {
   callback = function() vim.cmd("VimtexCompile!") end,
 })
 
--- Terminal
-vim.api.nvim_create_user_command("PS", function()
+-- Terminal: Use `Dev` to launch Powershell on the side
+vim.api.nvim_create_user_command("Dev", function()
   vim.cmd("topleft 60vsplit | terminal pwsh")
   vim.cmd("startinsert") -- Insert Mode Automatically
 end, {})
@@ -134,3 +136,6 @@ vim.api.nvim_create_autocmd("BufEnter", {
   pattern = "term://*",
   command = "startinsert",
 })
+
+-- On Startup
+vim.cmd.colorscheme("gruvbox")
