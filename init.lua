@@ -23,6 +23,7 @@ vim.pack.add({
   "https://github.com/stevearc/oil.nvim",                 -- Oil.nvim file explorer
 
   "https://github.com/ellisonleao/gruvbox.nvim",          -- Gruvbox theme
+  "https://github.com/savq/melange-nvim"                  -- Melange theme
 })
 
 require("oil").setup({ view_options = { show_hidden = true } })
