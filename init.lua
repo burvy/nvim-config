@@ -29,7 +29,7 @@ vim.pack.add({
 require("oil").setup({ view_options = { show_hidden = true } })
 vim.keymap.set("n", "-", "<cmd>Oil<cr>")
 
-require("nvim-treesitter").install({ "rust", "python", "haskell" })
+require("nvim-treesitter").install({ "rust", "python", "haskell", "wgsl" })
 
 -- LSP
 vim.lsp.config("rust_analyzer", {
@@ -38,7 +38,7 @@ vim.lsp.config("rust_analyzer", {
 vim.lsp.config("texlab", {
   settings = { texlab = { chktex = { onOpenAndSave = true, onEdit = true } } },
 })
-vim.lsp.enable({ "rust_analyzer", "pyright", "ruff", "hls", "texlab" })
+vim.lsp.enable({ "rust_analyzer", "pyright", "ruff", "hls", "texlab", "wgsl_analyzer" })
 
 vim.diagnostic.config({
   virtual_text = true,
@@ -107,7 +107,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 -- Treesitter
 vim.api.nvim_create_autocmd("FileType", {
   group = group,
-  pattern = { "rust", "python", "haskell" },
+  pattern = { "rust", "python", "haskell", "wgsl" },
   callback = function(args)
     vim.treesitter.start()
     if vim.bo[args.buf].filetype == "python" then
