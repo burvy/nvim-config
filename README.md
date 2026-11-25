@@ -14,3 +14,5 @@ vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")       -- ESC:   Terminal Normal Mode
 vim.keymap.set("t", "<A-l>", "<C-\\><C-n><C-w>l") -- Alt+l: Terminal -> Code
 vim.keymap.set("n", "<A-h>", "<C-w>h")            -- Alt+h: Code -> Terminal
 ```
+I also added `wgsl`, to use it, you need to install it:  
+`cargo install --git https://github.com/wgsl-analyzer/wgsl-analyzer wgsl-analyzer`
