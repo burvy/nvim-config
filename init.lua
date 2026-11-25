@@ -97,7 +97,7 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 -- Format First
 vim.api.nvim_create_autocmd("BufWritePre", {
   group = group,
-  pattern = { "*.rs", "*.py", "*.hs", "*.tex" },
+  pattern = { "*.rs", "*.py", "*.hs", "*.tex", "*.wgsl" },
   callback = function(args)
     vim.lsp.buf.format({ timeout_ms = 5000 })
     if vim.bo[args.buf].filetype == "rust" then leptosfmt(args.buf) end
